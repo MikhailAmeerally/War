@@ -11,13 +11,11 @@ if __name__ == '__main__':
     github_src = 'https://github.com/MikhailAmeerally/War/tree/master/War/Assets.xcassets'
 
     try:
-      head, branch_etc = github_src.split('/tree/')
-      folder_url = '/'.join(branch_etc.split('/')[1:])
+        head, branch_etc = github_src.split('/tree/')
+        folder_url = '/'.join(branch_etc.split('/')[1:])
     except:
-      print 'err:\tnot a valid folder url!'
+        print 'err:\tnot a valid folder url!'
     else:
-      print 'fetching...'
-      subprocess.call(['svn', 'checkout', '/'.join([head, 'trunk', folder_url])])
-  else:
-    print 'use:\tgitget.py https://github.com/user/project/tree/branch-name/folder\n'
+        print 'fetching...'
+        subprocess.call(['svn', 'checkout', '/'.join([head, 'trunk', folder_url])])
 
